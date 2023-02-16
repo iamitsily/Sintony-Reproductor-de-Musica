@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SintonyApp</string>
+    //Presentation layout
+    <string name="pl_nameapp">SintonyApp</string>
+    //Menu layout
+    <string name="ml_welcome">Bienvenido</string>
+    <string name="ml_btnRecientes"></string>
+</resources>
