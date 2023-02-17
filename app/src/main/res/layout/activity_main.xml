@@ -28,6 +28,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.126"
-        tools:srcCompat="@android:mipmap/sym_def_app_icon" />
+        app:srcCompat="@mipmap/disck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

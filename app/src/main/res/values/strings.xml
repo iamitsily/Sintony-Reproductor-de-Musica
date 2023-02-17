@@ -5,4 +5,6 @@
     //Menu layout
     <string name="ml_welcome">Bienvenido</string>
     <string name="ml_btnRecientes"></string>
+    //Reproductor Layout
+    <string name="rl_listening">Escuchando desde Telefono</string>
 </resources>

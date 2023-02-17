@@ -42,5 +42,10 @@ public class Menu extends AppCompatActivity {
             Intent intent = new Intent(this,listaCanciones.class);
             startActivity(intent);
         }
+        public void Song(View view){
+        Intent intent = new Intent(this,reproductor.class);
+        startActivity(intent);
+        finish();
+        }
 
 }
