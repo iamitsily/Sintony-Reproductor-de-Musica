@@ -15,11 +15,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
+        Intent intent = new Intent(this,Menu.class);
         try{
-            Thread.sleep(5000);
-            Intent intent = new Intent(this,Menu.class);
+            Thread.sleep(3000);
             startActivity(intent);
-
+            finish();
         }catch(Exception e){
             Toast.makeText(this, "Error: "+e, Toast.LENGTH_SHORT).show();
         }
