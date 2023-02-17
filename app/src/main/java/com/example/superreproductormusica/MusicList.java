@@ -2,29 +2,25 @@ package com.example.superreproductormusica;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class Music extends RecyclerView.Adapter<Music.ViewHolderDatos> {
+public class MusicList extends RecyclerView.Adapter<MusicList.ViewHolderDatos>{
     private int id,img;
     private String name, author, route, route_img,color;
     Context context;
     List<Music> listMusic;
-    //Clases del adaptador para el recyclerview
 
-    public Music(int id, String name, String author, String route, String route_img,int img,String color) {
+    public MusicList(int id, String name, String author, String route, String route_img,int img,String color) {
         this.name = name;
         this.author = author;
         this.route = route;
@@ -88,23 +84,20 @@ public class Music extends RecyclerView.Adapter<Music.ViewHolderDatos> {
     public void setColor(String color) {
         this.color = color;
     }
-
     @NonNull
     @Override
-    public ViewHolderDatos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        return new ViewHolderDatos(LayoutInflater.from(context).inflate(R.layout.music,parent,false));
+    public MusicList.ViewHolderDatos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new MusicList.ViewHolderDatos(LayoutInflater.from(context).inflate(R.layout.musiclist,parent,false));
     }
-    public Music(Context context, List<Music>listMusic){
+    public MusicList(Context context, List<Music>listMusic){
         this.context=context;
         this.listMusic = listMusic;
     }
     @Override
-    public void onBindViewHolder(@NonNull ViewHolderDatos holder, int position) {
+    public void onBindViewHolder(@NonNull MusicList.ViewHolderDatos holder, int position) {
         holder.name.setText(listMusic.get(position).getName());
         holder.author.setText(listMusic.get(position).getAuthor());
-        holder.relativeLayoutImage.setBackgroundResource(R.mipmap.disck);
-        holder.relativeLayout.setBackgroundColor(Color.parseColor(listMusic.get(position).getColor()));
+       holder.imageView.setImageResource(R.mipmap.disck);
     }
 
     @Override
@@ -115,14 +108,12 @@ public class Music extends RecyclerView.Adapter<Music.ViewHolderDatos> {
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
         int id;
         TextView name,author;
-        LinearLayout relativeLayout,relativeLayoutImage;
+        ImageView imageView;
         public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
-            name = (TextView) itemView.findViewById(R.id.tvm_name);
-            author = (TextView) itemView.findViewById(R.id.tvm_author);
-            relativeLayout = (LinearLayout) itemView.findViewById(R.id.music_item_linerearL);
-            relativeLayoutImage = (LinearLayout) itemView.findViewById(R.id.music_item_lyimage);
+            name = (TextView) itemView.findViewById(R.id.musiclist_textview);
+            author = (TextView) itemView.findViewById(R.id.musiclist_textview2);
+            imageView = (ImageView) itemView.findViewById(R.id.musiclist_imgview);
         }
-
     }
 }

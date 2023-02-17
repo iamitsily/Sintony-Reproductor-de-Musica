@@ -12,6 +12,12 @@
         android:theme="@style/Theme.SuperReproductorMusica"
         tools:targetApi="31">
         <activity
+            android:name=".reproductor"
+            android:exported="false" />
+        <activity
+            android:name=".listaCanciones"
+            android:exported="false" />
+        <activity
             android:name=".Menu"
             android:exported="false" />
         <activity
