@@ -10,42 +10,43 @@
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
+        android:background="#000000"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.00999999">
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/advent_pro_thin"
             android:text="@string/ml_welcome"
+            android:textColor="@color/white"
             android:textSize="30dp" />
 
         <ImageButton
             android:id="@+id/imageButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:foregroundGravity="center"
             android:onClick="listaCanciones"
-            app:srcCompat="@mipmap/history" />
+            app:srcCompat="@mipmap/buscarimagen" />
 
         <ImageButton
             android:id="@+id/imageButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:foregroundGravity="center"
+            android:onClick="config"
             app:srcCompat="@mipmap/configuration" />
 
     </LinearLayout>
@@ -53,10 +54,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
+        android:background="#EB000000"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,10 +75,6 @@
         android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -90,44 +84,32 @@
         app:layout_constraintTop_toBottomOf="@+id/ml_rv"
         app:layout_constraintVertical_bias="0.39999998">
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_weight="1"
-            app:srcCompat="@mipmap/disck" />
-
         <LinearLayout
             android:layout_width="201dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="end"
+            android:background="#000000"
+            android:gravity="center"
             android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/imageButton5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:onClick="Song"
+                app:srcCompat="@mipmap/arriba" />
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="TextView"
+                android:text="Reproductor"
+                android:textColor="@color/white"
                 android:textSize="24sp" />
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="TextView"
-                android:textSize="16sp" />
         </LinearLayout>
-
-        <ImageButton
-            android:id="@+id/imageButton5"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_weight="1"
-            android:background="@mipmap/play"
-            android:onClick="Song" />
 
     </LinearLayout>
 

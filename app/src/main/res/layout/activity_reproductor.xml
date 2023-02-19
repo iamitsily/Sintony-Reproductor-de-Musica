@@ -44,7 +44,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout5"
+        android:id="@+id/colorLayout"
         android:layout_width="409dp"
         android:layout_height="440dp"
         android:layout_marginTop="1dp"
@@ -57,9 +57,9 @@
         app:layout_constraintVertical_bias="0.0">
 
         <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/image_music"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
             android:layout_weight="1"
             app:srcCompat="@mipmap/disck" />
     </LinearLayout>
@@ -74,11 +74,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        app:layout_constraintTop_toBottomOf="@+id/colorLayout"
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/reproductor_tvname"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:text="Name"
@@ -86,7 +86,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/reproductor_tvauthor"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Author"
@@ -96,11 +96,10 @@
     <LinearLayout
         android:id="@+id/linearLayout8"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
         android:gravity="center"
-        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -108,10 +107,30 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
         app:layout_constraintVertical_bias="0.0">
 
-        <SeekBar
-            android:id="@+id/seekBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+        <ImageButton
+            android:id="@+id/back_btn"
+            style="@style/Widget.AppCompat.ImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="back"
+            android:src="@mipmap/back" />
+
+        <ImageButton
+            android:id="@+id/play_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="playPause"
+            android:src="@mipmap/play" />
+
+        <ImageButton
+            android:id="@+id/next_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="next"
+            android:src="@mipmap/next" />
     </LinearLayout>
 
     <LinearLayout
@@ -127,39 +146,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
 
+        <Button
+            android:id="@+id/button"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent" />
+
         <ImageButton
-            android:id="@+id/imageButton7"
+            android:id="@+id/repeat_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="repeat"
             android:src="@mipmap/songnext" />
 
         <ImageButton
-            android:id="@+id/imageButton8"
+            android:id="@+id/stop_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@mipmap/back" />
-
-        <ImageButton
-            android:id="@+id/imageButton9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@mipmap/play" />
-
-        <ImageButton
-            android:id="@+id/imageButton10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@mipmap/next" />
-
-        <ImageButton
-            android:id="@+id/imageButton11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:onClick="stop"
             android:src="@mipmap/stop" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

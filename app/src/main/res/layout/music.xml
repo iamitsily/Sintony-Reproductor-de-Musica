@@ -21,7 +21,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/advent_pro_thin"
             android:text="TextView"
+            android:textColor="#FFFFFF"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -30,8 +32,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/advent_pro_thin"
             android:text="TextView"
-            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp"
             android:textStyle="bold" />
     </LinearLayout>
 
