@@ -22,23 +22,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-        <EditText
-            android:id="@+id/editTextTextPersonName"
-            android:layout_width="300dp"
+        <SearchView
+            android:id="@+id/txtBuscar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:ems="10"
-            android:hint="Buscar"
-            android:inputType="textPersonName"
-            android:textSize="30dp" />
+            android:background="#A1A1A1" />
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            app:srcCompat="@mipmap/buscarimagen" />
     </LinearLayout>
 
     <LinearLayout
