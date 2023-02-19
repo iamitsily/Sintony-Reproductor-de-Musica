@@ -63,6 +63,9 @@ public class reproductor extends AppCompatActivity {
     public void Ocultar(View view) {
         Intent intent = new Intent(this, Menu.class);
         startActivity(intent);
+        vectormp[posicion].stop();
+        posicion=0;
+        reset();
         finish();
     }
 
