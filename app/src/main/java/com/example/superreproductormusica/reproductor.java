@@ -61,8 +61,6 @@ public class reproductor extends AppCompatActivity {
     }
 
     public void Ocultar(View view) {
-        Intent intent = new Intent(this, Menu.class);
-        startActivity(intent);
         vectormp[posicion].stop();
         posicion=0;
         reset();
@@ -91,11 +89,11 @@ public class reproductor extends AppCompatActivity {
         if (vectormp[posicion].isPlaying()) {
             vectormp[posicion].pause();
             playPause.setImageResource(R.mipmap.play);
-            Toast.makeText(this, "Pausa", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Pausa", Toast.LENGTH_SHORT).show();
         } else {
             vectormp[posicion].start();
             playPause.setImageResource(R.mipmap.pause);
-            Toast.makeText(this, "Play", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Play", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -104,22 +102,23 @@ public class reproductor extends AppCompatActivity {
             vectormp[posicion].stop();
             posicion = 0;
             playPause.setImageResource(R.mipmap.play);
-            Toast.makeText(this, "Stop", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Stop", Toast.LENGTH_SHORT).show();
             reset();
-            Intent intent = new Intent(this,Menu.class);
-            startActivity(intent);
+            finish();
+            /*Intent intent = new Intent(this,Menu.class);
+            startActivity(intent);*/
         }
     }
 
     public void repeat(View view) {
         if (repetir == 1) {
             repeat.setImageResource(R.mipmap.songnext);
-            Toast.makeText(this, "No repetir", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "No repetir", Toast.LENGTH_SHORT).show();
             vectormp[posicion].setLooping(false);
             repetir = 2;
         } else {
             repeat.setImageResource(R.mipmap.repeat);
-            Toast.makeText(this, "Repetir", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Repetir", Toast.LENGTH_SHORT).show();
             vectormp[posicion].setLooping(true);
             repetir = 1;
         }
