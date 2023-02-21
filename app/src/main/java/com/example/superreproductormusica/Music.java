@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -108,13 +109,13 @@ public class Music extends RecyclerView.Adapter<Music.ViewHolderDatos> implement
     @Override
     public void onBindViewHolder(@NonNull ViewHolderDatos holder, int position) {
         holder.name.setText(listMusic.get(position).getName());
-        holder.author.setText(listMusic.get(position).getAuthor());
-        holder.relativeLayoutImage.setBackgroundResource(listMusic.get(position).getImg());
+        holder.author=listMusic.get(position).getAuthor();
+        holder.Image.setBackgroundResource(listMusic.get(position).getImg());
         holder.relativeLayout.setBackgroundColor(Color.parseColor(listMusic.get(position).getColor()));
         holder.id = listMusic.get(position).getId();
         holder.img = listMusic.get(position).getImg();
-        holder.route = listMusic.get(position).getRoute();
-        holder.route_img = listMusic.get(position).getRoute_img();
+       // holder.route = listMusic.get(position).getRoute();
+        //holder.route_img = listMusic.get(position).getRoute_img();
         holder.color=listMusic.get(position).getColor();
         //set events
         holder.setOnClickListener();
@@ -126,18 +127,18 @@ public class Music extends RecyclerView.Adapter<Music.ViewHolderDatos> implement
     }
 
     public class ViewHolderDatos extends RecyclerView.ViewHolder implements View.OnClickListener {
-        int id, img;
-        String route, route_img,color;
+        int id, idAlbum,img;
+        String /*route, route_img,*/color,author;
         Context context;
-        TextView name, author;
-        LinearLayout relativeLayout, relativeLayoutImage;
+        TextView name;
+        LinearLayout relativeLayout, Image;
         public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
             context = itemView.getContext();
             name = (TextView) itemView.findViewById(R.id.tvm_name);
-            author = (TextView) itemView.findViewById(R.id.tvm_author);
+            //author = (TextView) itemView.findViewById(R.id.tvm_author);
             relativeLayout = (LinearLayout) itemView.findViewById(R.id.music_item_linerearL);
-            relativeLayoutImage = (LinearLayout) itemView.findViewById(R.id.music_item_lyimage);
+            Image = (LinearLayout) itemView.findViewById(R.id.music_item_lyimage);
         }
 
         public void setOnClickListener() {
@@ -147,12 +148,12 @@ public class Music extends RecyclerView.Adapter<Music.ViewHolderDatos> implement
         @Override
         public void onClick(View v) {
             //int id, String name, String author, String route, String route_img,int img,String color
-            Intent intent = new Intent(context, reproductor.class);
-            intent.putExtra("id", this.id);
+            Intent intent = new Intent(context, listaCancionesAlbum.class);
+            intent.putExtra("id", id);
             intent.putExtra("name", name.getText());
-            intent.putExtra("author", author.getText());
-            intent.putExtra("route", route);
-            intent.putExtra("route_img", route_img);
+            intent.putExtra("author", author);
+            //intent.putExtra("route", route);
+            //intent.putExtra("route_img", route_img);
             intent.putExtra("img", img);
             intent.putExtra("color",color);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

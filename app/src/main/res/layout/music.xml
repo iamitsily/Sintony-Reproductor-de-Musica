@@ -22,21 +22,23 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/advent_pro_thin"
+            android:gravity="center"
             android:text="TextView"
             android:textColor="#FFFFFF"
             android:textSize="24sp"
             android:textStyle="bold" />
+        <!--
+                <TextView
+                    android:id="@+id/tvm_author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/advent_pro_thin"
+                    android:text="TextView"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+         -->
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvm_author"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/advent_pro_thin"
-            android:text="TextView"
-            android:textColor="#FFFFFF"
-            android:textSize="10sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-</LinearLayout>
+        </LinearLayout>

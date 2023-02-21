@@ -19,8 +19,8 @@ public class listaCanciones extends AppCompatActivity implements SearchView.OnQu
         setContentView(R.layout.activity_lista_canciones);
         getSupportActionBar().hide();
 
-        recyclerView = (RecyclerView) findViewById(R.id.rv);
-        adapter = new MusicList(getApplicationContext(),MainActivity.itemsList);
+         recyclerView = (RecyclerView) findViewById(R.id.rv);
+        adapter = new MusicList(getApplicationContext(),MainActivity.itemsList,1,0);
         recyclerView.setAdapter(adapter);
         txtBuscar = (SearchView) findViewById(R.id.txtBuscar);
 
