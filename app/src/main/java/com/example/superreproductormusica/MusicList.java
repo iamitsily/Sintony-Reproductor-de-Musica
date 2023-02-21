@@ -168,7 +168,6 @@ public class MusicList extends RecyclerView.Adapter<MusicList.ViewHolderDatos>{
         LinearLayout relativeLayout;
         public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
-
             context = itemView.getContext();
             name = (TextView) itemView.findViewById(R.id.musiclist_textview);
             author = (TextView) itemView.findViewById(R.id.musiclist_textview2);
