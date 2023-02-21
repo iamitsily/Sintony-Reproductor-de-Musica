@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         itemsList.clear();
         items.clear();
         //Albunes
-        items.add(new Music(0, "Runaway", "Aurora", "", "", R.mipmap.runaway, "#495D80"));
+        items.add(new Music(0, "All My Demons Greeting Me as a Friend", "Aurora", "", "", R.mipmap.runaway, "#495D80"));
         items.add(new Music(1, "The Search", "NF", "", "", R.mipmap.ohlord, "#292D36"));
         items.add(new Music(2, "MTV Unplugged", "Zoe", "", "", R.mipmap.labiosrotos, "#E5E7E9"));
         items.add(new Music(3, "Limon y Sal", "Julieta Venegas", "", "", R.mipmap.eresparami, "#4b1a21"));
