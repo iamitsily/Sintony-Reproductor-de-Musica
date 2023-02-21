@@ -17,20 +17,29 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class MusicList extends RecyclerView.Adapter<MusicList.ViewHolderDatos>{
-    private int id,img;
-    private String name, author, route, route_img,color;
+    private int id,idAlbum,img,FromPantalla,idAlbumOut;
+    private String name, author,color;
     Context context;
 
     List<MusicList> listMusic;
     List<MusicList>listOriginal;
-    public MusicList(int id, String name, String author, String route, String route_img,int img,String color) {
+    List<MusicList>listAlbum = new ArrayList<>();
+    public MusicList(int id, int idAlbum,String name, String author,int img,String color) {
         this.id = id;
         this.name = name;
         this.author = author;
-        this.route = route;
-        this.route_img = route_img;
         this.img = img;
         this.color=color;
+        this.idAlbum = idAlbum;
+
+    }
+
+    public int getIdAlbum() {
+        return idAlbum;
+    }
+
+    public void setIdAlbum(int idAlbum) {
+        this.idAlbum = idAlbum;
     }
 
     public int getId() {
@@ -57,21 +66,6 @@ public class MusicList extends RecyclerView.Adapter<MusicList.ViewHolderDatos>{
         this.author = author;
     }
 
-    public String getRoute() {
-        return route;
-    }
-
-    public void setRoute(String route) {
-        this.route = route;
-    }
-
-    public String getRoute_img() {
-        return route_img;
-    }
-
-    public void setRoute_img(String route_img) {
-        this.route_img = route_img;
-    }
 
     public int getImg() {
         return img;
@@ -93,11 +87,23 @@ public class MusicList extends RecyclerView.Adapter<MusicList.ViewHolderDatos>{
     public ViewHolderDatos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolderDatos(LayoutInflater.from(context).inflate(R.layout.musiclist,parent,false));
     }
-    public MusicList(Context context, List<MusicList>listMusic){
+    public MusicList(Context context, List<MusicList>listMusic, int idAlbumOutPro, int FromPantalla){
+        System.out.println("ConstructorMusicList "+idAlbumOutPro);
+        idAlbumOut = idAlbumOutPro;
+        System.out.println("idAlbumOut: "+this.idAlbumOut);
         this.context=context;
         this.listMusic = listMusic;
+        this.FromPantalla = FromPantalla;
         listOriginal = new ArrayList<>();
         listOriginal.addAll(listMusic);
+
+        for (int i=0;i<listMusic.size();i++){
+            if (listMusic.get(i).getIdAlbum()==idAlbumOut){
+                listAlbum.add(listMusic.get(i));
+            }
+
+        }
+
     }
     public void filtrado(String musica){
         int longitud = musica.length();
@@ -121,22 +127,36 @@ public class MusicList extends RecyclerView.Adapter<MusicList.ViewHolderDatos>{
     }
     @Override
     public void onBindViewHolder(@NonNull ViewHolderDatos holder, int position) {
-        holder.name.setText(listMusic.get(position).getName());
-        holder.author.setText(listMusic.get(position).getAuthor());
-        holder.imageView.setImageResource(listMusic.get(position).getImg());
-        holder.id = listMusic.get(position).getId();
-        holder.img = listMusic.get(position).getImg();
-        holder.route = listMusic.get(position).getRoute();
-        holder.route_img = listMusic.get(position).getRoute_img();
-        holder.color=listMusic.get(position).getColor();
+        if (FromPantalla==1){
+            System.out.println(idAlbumOut +" | "+listAlbum.get(position).getIdAlbum());
+            holder.name.setText(listAlbum.get(position).getName());
+            holder.author.setText(listAlbum.get(position).getAuthor());
+            holder.imageView.setImageResource(listAlbum.get(position).getImg());
+            holder.id = listAlbum.get(position).getId();
+            holder.img = listAlbum.get(position).getImg();
+            holder.color=listAlbum.get(position).getColor();
+            holder.setOnClickListener();
 
-        //set events
-        holder.setOnClickListener();
+        }else{
+            holder.name.setText(listMusic.get(position).getName());
+            holder.author.setText(listMusic.get(position).getAuthor());
+            holder.imageView.setImageResource(listMusic.get(position).getImg());
+            holder.id = listMusic.get(position).getId();
+            holder.img = listMusic.get(position).getImg();
+            holder.color=listMusic.get(position).getColor();
+            holder.setOnClickListener();
+        }
+
+
     }
 
     @Override
     public int getItemCount() {
-        return listMusic.size();
+        if (FromPantalla==1){
+            return listAlbum.size();
+        }else{
+            return listMusic.size();
+        }
     }
 
     public class ViewHolderDatos extends RecyclerView.ViewHolder implements View.OnClickListener{
@@ -148,6 +168,7 @@ public class MusicList extends RecyclerView.Adapter<MusicList.ViewHolderDatos>{
         LinearLayout relativeLayout;
         public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
+
             context = itemView.getContext();
             name = (TextView) itemView.findViewById(R.id.musiclist_textview);
             author = (TextView) itemView.findViewById(R.id.musiclist_textview2);
@@ -165,8 +186,6 @@ public class MusicList extends RecyclerView.Adapter<MusicList.ViewHolderDatos>{
             intent.putExtra("id",id);
             intent.putExtra("name",name.getText());
             intent.putExtra("author",author.getText());
-            intent.putExtra("route",route);
-            intent.putExtra("route_img",route_img);
             intent.putExtra("img",img);
             intent.putExtra("color",color);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

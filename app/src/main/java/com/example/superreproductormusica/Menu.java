@@ -10,19 +10,27 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Menu extends AppCompatActivity {
-
+    TextView textView;
     RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         getSupportActionBar().hide();
-
+        textView = (TextView) findViewById(R.id.tvBienvenido);
+        Bundle bundle = getIntent().getExtras();
+        //String nombre = bundle.getString("nombre");
+        //textView.setText("Bienvenido "+nombre);
+//        Toast.makeText(this, nombre, Toast.LENGTH_SHORT).show();
         recyclerView = (RecyclerView) findViewById(R.id.ml_rv);
         recyclerView.setAdapter(new Music(getApplicationContext(), MainActivity.items));
     }
@@ -33,7 +41,7 @@ public class Menu extends AppCompatActivity {
     }
 
     public void Song(View view) {
-        Intent intent = new Intent(this, reproductor.class);
+        Intent intent = new Intent(this, listaCanciones.class);
         intent.putExtra("id", 0);
         intent.putExtra("name", "Runaway");
         intent.putExtra("author", "Aurora");
