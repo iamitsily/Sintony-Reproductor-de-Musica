@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         vectormp[22] = MediaPlayer.create(this,R.raw.shutdown);
         vectormp[23] = MediaPlayer.create(this,R.raw.howyoulikethat);
 
-        Intent intent = new Intent(this,Menu.class);
+        Intent intent = new Intent(this,login   .class);
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override

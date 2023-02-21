@@ -28,8 +28,8 @@ public class Menu extends AppCompatActivity {
         getSupportActionBar().hide();
         textView = (TextView) findViewById(R.id.tvBienvenido);
         Bundle bundle = getIntent().getExtras();
-        //String nombre = bundle.getString("nombre");
-        //textView.setText("Bienvenido "+nombre);
+        String nombre = bundle.getString("nombre");
+        textView.setText("Bienvenido "+nombre);
 //        Toast.makeText(this, nombre, Toast.LENGTH_SHORT).show();
         recyclerView = (RecyclerView) findViewById(R.id.ml_rv);
         recyclerView.setAdapter(new Music(getApplicationContext(), MainActivity.items));
